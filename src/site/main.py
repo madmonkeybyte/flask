@@ -16,12 +16,13 @@ from flask import request, abort, redirect, url_for, render_template, session
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
+import json
 
 
-# variables
-PATH = "~/Documents/projects/python/flask/src/site/assets"
-UPLOAD_FOLDER = PATH + '/uploads'
-ALLOWED_EXTENSIONS = { 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif' }
+# config file
+with open('config.json') as f:
+    config = json.load(f)
+
 
 # db stuff
 class Base(DeclarativeBase):
@@ -33,10 +34,11 @@ db = SQLAlchemy(model_class=Base)
 
 # site
 app = Flask(__name__)
-app.secret_key = b'b8ebc09828cbf127f1b961a5384064e0a95a86a21376f337a567768b5b79e182'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///~/Documents/projects/python/flask/src/site/data/site.db"
+app.secret_key = config.get('key')
+app.config['UPLOAD_FOLDER'] = config.get('upload_folder')
+app.config['MAX_CONTENT_LENGTH'] = config.get('max_content_length')
+app.config['SQLALCHEMY_DATABASE_URI'] = config.get('dbpath')
+ALLOWED_EXTENSIONS = config.get('allowed_extensions')
 
 
 @app.route("/")
@@ -102,4 +104,4 @@ def download_file(name):
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=8000, debug=True)
+    app.run(config.get('host_address'), port=config.get('host_port'), debug=True)
