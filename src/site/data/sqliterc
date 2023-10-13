@@ -1,0 +1,4 @@
+.mode list
+.prompt "site> : "
+.separator " | "
+.databases

@@ -1,0 +1,5 @@
+flask
+pillow
+flask-sqlalchemy
+pyuwsgi
+werkzeug

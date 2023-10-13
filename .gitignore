@@ -1,0 +1,9 @@
+*.pyc
+__pycache__/
+*~
+*.sqlite
+*.db
+.DS_Store/
+dist/
+out/
+build/
