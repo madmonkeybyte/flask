@@ -1,0 +1,13 @@
+{
+    "path": "~/Documents/projects/python/flask",
+    "upload_path": "~/Documents/projects/python/flask/src/site/assets/uploads",
+    "allowed_extension": "{ 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif' }",
+    "max_length_size": 16000000,
+    "key": "b8ebc09828cbf127f1b961a5384064e0a95a86a21376f337a567768b5b79e182",
+    "dbuser": "",
+    "dbpwd": "",
+    "dbhost": "",
+    "dbpath": "sqlite:///~/Documents/projects/python/flask/src/site/data/site.db",
+    "host_address": "0.0.0.0",
+    "host_port": 8000
+}
