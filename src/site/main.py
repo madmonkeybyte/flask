@@ -26,7 +26,7 @@ with open('config.json') as f:
 
 # db stuff
 class Base(DeclarativeBase):
-  pass
+    pass
 
 
 db = SQLAlchemy(model_class=Base)
@@ -104,4 +104,5 @@ def download_file(name):
 
 
 if __name__ == '__main__':
-    app.run(config.get('host_address'), port=config.get('host_port'), debug=True)
+    app.run(config.get('host_address'),
+            port=config.get('host_port'), debug=True)
