@@ -1,0 +1,13 @@
+[tool.pyright]
+include  = ["src"]
+exclude = []
+ignore = []
+defineConstant = { DEBUG = true }
+stubPath = "src/site"
+venv = "flask"
+
+reportMissingImports = true
+reportMissingTypeStubs = true
+
+pythonVersion = "3.11.2"
+pythonPlatform = "Darwin"
