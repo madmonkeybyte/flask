@@ -1,13 +1,15 @@
 [tool.pyright]
-include  = ["src"]
-exclude = []
-ignore = []
-defineConstant = { DEBUG = true }
-stubPath = "src/site"
-venv = "flask"
+name = "flask"
+version = "1.0.0"
+description = "Basic blog app built in flask."
+dependencies = [
+   "flask",
+   "pillow",
+   "flask-sqlalchemy",
+   "pyuwsgi",
+   "werkzeug",
+]
 
-reportMissingImports = true
-reportMissingTypeStubs = true
-
-pythonVersion = "3.11.2"
-pythonPlatform = "Darwin"
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
